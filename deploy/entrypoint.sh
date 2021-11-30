@@ -50,7 +50,7 @@ cd $APP/dist
 if [ ! -z "$STATIC_CDN_HOST" ]; then
     find . -name "*.*" -type f -exec sed -i "s/__STATIC_CDN_HOST__/\/$STATIC_CDN_HOST/g" {} \;
 else
-    find . -name "*.*" -type f -exec sed -i "s/__STATIC_CDN_HOST__\///g" {} \;
+    find . -name "*.*" -type f | xargs sed -i "s/__STATIC_CDN_HOST__\///g"
 fi
 
 cd $APP
